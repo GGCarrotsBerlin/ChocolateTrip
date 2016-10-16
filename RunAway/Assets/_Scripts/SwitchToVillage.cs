@@ -26,6 +26,8 @@ public class SwitchToVillage : MonoBehaviour {
 		progress.text = async.progress.ToString();
 		while (!async.isDone) {	
 			progress.text = async.progress.ToString("F2") + "%";
+			if (async.progress > 0.89f)
+				Screen.orientation = ScreenOrientation.LandscapeLeft;
 			yield return null;
 		}
 	}

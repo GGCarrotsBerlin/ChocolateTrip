@@ -89,6 +89,11 @@ public class SplineController : MonoBehaviour
 			interp.SetAutoCloseMode(step * c);
 	}
 
+	public void ChangeDurationTo(float duration) {
+		Duration = duration;
+		SetupSplineInterpolator (mSplineInterp, mTransforms);
+	}
+
 
 	/// <summary>
 	/// Returns children transforms, sorted by name.

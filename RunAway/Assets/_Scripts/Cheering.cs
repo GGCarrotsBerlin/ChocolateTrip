@@ -17,13 +17,11 @@ public class Cheering : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Screen.orientation = ScreenOrientation.Portrait;
+		Screen.orientation = ScreenOrientation.AutoRotation;
 
 		GameObject userDataObj = GameObject.Find ("UserData");
 		UserData userData = userDataObj.GetComponent<UserData> ();
 		runDuration = userData.RunDurationInSeconds + waitBeforeStart;
-
-
 	}
 	
 	// Update is called once per frame
@@ -34,6 +32,7 @@ public class Cheering : MonoBehaviour {
 		}
 		if (timePassed > runDuration && !applauseStarted) {
 			splineInterpolator.mState = "Stopped";
+			splineInterpolator.enabled = false;
 			applauseStarted = true;
 			splineController.enabled = false;
 			applause.Play ();
@@ -42,8 +41,7 @@ public class Cheering : MonoBehaviour {
 	}
 
 	private IEnumerator SwitchScenes(float seconds) {
-		int secs = (int)seconds;
-		yield return new WaitForSeconds (secs);
+		yield return new WaitForSeconds (seconds);
 		SceneManager.LoadScene (3);
 	}
 }
