@@ -1,3 +1,6 @@
+![Alt text]
+(https://github.com/GGCarrotsBerlin/ChocolateTrip/blob/master/RunAway/Assets/Runaway%20logo%20finalpng.png?raw=true "Optional Title")
+
 #RunAway
 
 _Contributors: Fana Harper-Tyson,  Johanna Latt and Ouafae Ben El Kadi (Team ChocolatetTrip)_
