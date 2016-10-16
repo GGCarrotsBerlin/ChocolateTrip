@@ -17,7 +17,6 @@ public class SwitchToVillage : MonoBehaviour {
 		userData.speed = int.Parse(speedInput.text);
 		userData.RunDurationInSeconds = int.Parse (durationInput.text);
 		StartCoroutine (ShowLoadingScreen ());
-
 	}
 
 	private IEnumerator ShowLoadingScreen() {

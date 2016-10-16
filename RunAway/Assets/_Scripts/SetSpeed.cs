@@ -9,7 +9,7 @@ public class SetSpeed : MonoBehaviour {
 	void Start () {
 		GameObject userData = GameObject.Find ("UserData");
 		int speed = userData.GetComponent<UserData> ().speed;
-		float duration = (1f / (float) speed) * 200;
+		float duration = (1f / (float) speed) * 350;
 		splineController.Duration = duration;
 	}
 }
