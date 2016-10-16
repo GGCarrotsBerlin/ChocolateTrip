@@ -13,9 +13,6 @@ public class SwitchToVillage : MonoBehaviour {
 	public Text loadingText;
 	public Text progress;
 
-	private string currentDots = ".";
-
-
 	public void Switch() {
 		userData.speed = int.Parse(speedInput.text);
 		userData.RunDurationInSeconds = int.Parse (durationInput.text);
@@ -27,14 +24,8 @@ public class SwitchToVillage : MonoBehaviour {
 		AsyncOperation async = SceneManager.LoadSceneAsync (2);
 		loadingScreen.SetActive (true);
 		progress.text = async.progress.ToString();
-		while (!async.isDone) {
-			currentDots += ".";
-			if (currentDots.Equals (".....")) {
-				currentDots = ".";
-			}
-			loadingText.text = "Loading" + currentDots;
-			progress.text = (Mathf.Round(async.progress * 100) / 100).ToString() + "%";
-			progress.text = async.progress.ToString();
+		while (!async.isDone) {	
+			progress.text = async.progress.ToString("F2") + "%";
 			yield return null;
 		}
 	}

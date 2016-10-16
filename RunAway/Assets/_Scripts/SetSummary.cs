@@ -10,12 +10,7 @@ public class SetSummary : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		UserData userData = GameObject.Find ("UserData").GetComponent<UserData>();
-		distance.text = (Mathf.Round(((float) userData.speed * ((float) userData.RunDurationInSeconds/60f)) * 100)/100).ToString() + " km";
+		distance.text = (userData.speed * ((float) userData.RunDurationInSeconds/60f)).ToString("F2") + " km";
 		duration.text = userData.RunDurationInSeconds.ToString() + " min";
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
