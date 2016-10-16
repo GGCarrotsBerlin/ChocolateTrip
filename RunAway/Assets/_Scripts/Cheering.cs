@@ -14,7 +14,7 @@ public class Cheering : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Screen.orientation = ScreenOrientation.LandscapeLeft;
+		Screen.orientation = ScreenOrientation.Portrait;
 
 		GameObject userDataObj = GameObject.Find ("UserData");
 		UserData userData = userDataObj.GetComponent<UserData> ();

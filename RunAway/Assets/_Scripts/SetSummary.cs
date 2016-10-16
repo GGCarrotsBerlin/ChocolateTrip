@@ -10,7 +10,7 @@ public class SetSummary : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		UserData userData = GameObject.Find ("UserData").GetComponent<UserData>();
-		distance.text = ((float) userData.speed * ((float) userData.RunDurationInSeconds/60f)).ToString() + " km";
+		distance.text = (Mathf.Round(((float) userData.speed * ((float) userData.RunDurationInSeconds/60f)) * 100)/100).ToString() + " km";
 		duration.text = userData.RunDurationInSeconds.ToString() + " min";
 	}
 	

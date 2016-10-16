@@ -9,19 +9,33 @@ public class SwitchToVillage : MonoBehaviour {
 	public InputField speedInput;
 	public InputField durationInput;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public GameObject loadingScreen;
+	public Text loadingText;
+	public Text progress;
+
+	private string currentDots = ".";
+
 
 	public void Switch() {
 		userData.speed = int.Parse(speedInput.text);
 		userData.RunDurationInSeconds = int.Parse (durationInput.text);
-		SceneManager.LoadScene (2);
+		StartCoroutine (ShowLoadingScreen ());
+
+	}
+
+	private IEnumerator ShowLoadingScreen() {
+		AsyncOperation async = SceneManager.LoadSceneAsync (2);
+		loadingScreen.SetActive (true);
+		progress.text = async.progress.ToString();
+		while (!async.isDone) {
+			currentDots += ".";
+			if (currentDots.Equals (".....")) {
+				currentDots = ".";
+			}
+			loadingText.text = "Loading" + currentDots;
+			progress.text = (Mathf.Round(async.progress * 100) / 100).ToString() + "%";
+			progress.text = async.progress.ToString();
+			yield return null;
+		}
 	}
 }
